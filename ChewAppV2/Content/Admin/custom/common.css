@@ -1,0 +1,214 @@
+﻿/********* html selector ***********/
+a {
+    color: black;
+}
+
+/***** Custom CSS ******/
+.chew__header h3,
+.chew__h3 {
+    font-size: 32px !important;
+    font-weight: 700;
+}
+
+.chew__back__button {
+    margin: 26px 0;
+}
+
+.table thead tr th {
+    background: #E4E4E4;
+}
+
+.table > tbody > tr > td,
+.table > tfoot > tr > td,
+.table > thead > tr > td {
+    padding: 0;
+}
+
+.table thead tr th,
+.table tbody tr th,
+.table tfoot tr th,
+.table thead tr td,
+.table tbody tr td,
+.table tfoot tr td,
+.table tr th {
+    text-align: center;
+    vertical-align: middle;
+    border: solid 1px black !important;
+}
+
+.chew__table thead > tr > th {
+    padding: 10px 30px;
+}
+
+.chew__td--indexes--page {
+    background: #E4E4E4;
+}
+.chew__link--indexes--page {
+    text-decoration: underline;
+    color: black;
+}
+
+.chew__button {
+    width: 140px;
+    font-size: 13px;
+    background-color: rgba(22, 155, 213, 1);
+}
+
+.chew__text__highlight {
+    font-size: 18px;
+    font-weight: 700;
+    background-color: #FFCC00;
+}
+
+.clear__padding ul {
+    padding: 0;
+}
+
+ul.pagination {
+    padding-right: 1.5%;
+}
+/************ Account CSS ************/
+/*** connection details ***/
+#connection__message .table thead tr th,
+#connection__rating .table thead tr th {
+    font-weight: normal !important;
+}
+
+#connection__rating table tbody tr td {
+    text-align: left;
+}
+
+.connection__spec ul {
+    padding: 0;
+    font-size: 14px;
+}
+
+    .connection__spec ul li {
+        list-style: none;
+    }
+
+        .connection__spec ul li:nth-child(2n+2) {
+            font-weight: 700;
+        }
+
+/*** account details */
+/*v1*/
+.profile-user-img {
+    border-width: 0px;
+    position: absolute;
+    left: 35px;
+    top: 8px;
+    width: 191px;
+    height: 191px;
+}
+
+#tableDetailAccount tr th {
+    background-color: #cccccc;
+}
+
+#tableDetailAccount .table, #tableDetailAccount .table th, #tableDetailAccount .table td {
+    border: 1px solid black !important;
+}
+
+#u1276_text {
+    border: solid 1px black;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+#dropdown {
+    border: solid 1px;
+    top: 0;
+    margin-left: 100%;
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    min-width: 100px;
+    padding: 0px 0;
+}
+
+ul.dropdown-menu li:hover {
+    color: #fff;
+    background-color: #31b0d5;
+    border-color: #269abc;
+}
+
+#tblBalance thead tr th {
+    background-color: #cccccc;
+    text-align: center;
+    border: solid 1px black !important;
+}
+
+#tblBalance tbody tr td {
+    text-align: center;
+    border: solid 1px black !important;
+}
+
+#tblBalance tr th.no-sort {
+    border: none !important;
+    background-color: white;
+}
+
+#tblBalance tbody tr td.view {
+    border: none !important;
+    background-color: white;
+}
+
+#deleteBalance {
+    font-size: 22px;
+    cursor: pointer;
+}
+
+    #deleteBalance:hover {
+        color: red;
+    }
+
+/*v2*/
+#saved__address h2,
+#saved__address p,
+#saved__address ul li {
+    font-family: 'Arial-BoldMT', 'Arial Bold', 'Arial';
+    font-size: 14px;
+}
+
+#saved__address h2 {
+    font-weight: 700;
+    font-size: 18px;
+    color: #333333;
+    margin: 20px 0;
+}
+
+#saved__address p {
+    font-weight: 700;
+    margin: 0;
+}
+
+#saved__address ul {
+    margin: 0 0 18px 0;
+    padding: 8px 0 13px 0;
+    list-style: none;
+    background-color: #f2f2f2;
+    width: 300px;
+    height: 170px;
+}
+
+    #saved__address ul li {
+        padding: 0 10px;
+        line-height: normal;
+    }
+
+        #saved__address ul li:nth-child(2n+2) {
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+/********* Banner CSS *************/
+.form-group {
+    padding-bottom: 15px;
+}
+
+a.banner__detail__link--blue {
+    color: #169BD5;
+    text-decoration: underline;
+}

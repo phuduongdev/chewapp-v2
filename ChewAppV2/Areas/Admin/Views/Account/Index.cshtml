@@ -1,0 +1,116 @@
+﻿@model IEnumerable<ChewApp.Domain.Models.UserTbl>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Account";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section cssExtend
+        {
+    <link href="~/Content/Admin/custom/common.css" rel="stylesheet" />
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title chew__h3">Accounts</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <form class="row">
+                    <div class="col-xs-3">
+                        <input type="text" class="form-control" id="searchText" placeholder="Search text" autofocus="">
+                    </div>
+                    <div class="col-xs-1">
+                        <button type="button" class="btn btn-block btn-dropbox">Search</button>
+                    </div>
+                    <div class="col-xs-3">
+                        <select id="gender" class="form-control">
+                            <option value="All">All</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="No Selected">No Selected</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-3">
+                        <select id="status" class="form-control">
+                            <option value="All">All</option>
+                            <option value="Active" selected="">Active</option>
+                            <option value="InActive">Inactive</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <!-- /.box-body filter area -->
+            <div class="box-body">
+                <table id="tblAccounts" class="table table-responsive chew__table">
+                    <thead>
+                        <tr>
+                            <th class="js__lastOpenApp">Last Open App</th>
+                            <th class="registeredDate">Registered Date</th>
+                            <th class="name none-sort">Name</th>
+                            <th class="gender none-sort">Gender</th>
+                            <th class="email none-sort">Email</th>
+                            <th class="mobiphone none-sort">Mobiphone</th>
+                            <th class="status none-sort">Status</th>
+                            @*<th class="no-sort"></th>*@
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if(ViewBag.Count != 0) {
+                            foreach(var item in Model) {
+                                <tr style="cursor: pointer;">
+                                    <td></td>
+                                    @if(item.RegisteredOn != null && item.RegisteredOn != Convert.ToDateTime("1/1/0001 12:00:00 AM")) {
+                                        <td>
+                                            @String.Format("{0:dd MMM yyyy}", item.RegisteredOn)<br />
+                                            @String.Format("{0:HH:mm}", item.RegisteredOn)
+                                        </td>
+                                    } else {
+                                        <td></td>
+                                    }
+                                    <td class="chew__td--indexes--page">
+                                        <a href="~/Admin/Account/Details/@item.ID" class="chew__link--indexes--page">
+                                            @item.FullName
+                                        </a>
+                                    </td>
+                                    <td>
+                                        @(item.Gender == 0 ? "Male" : item.Gender == 1 ? "Female" : "No Selected")
+                                    </td>
+                                    <td>@item.Email</td>
+                                    <td><span>+65</span> @item.Phone</td>
+                                    @if(item.Status == 1) {
+                                        <td>Active</td>
+                                    } else if(item.Status == 2) {
+                                        <td>Deregistered</td>
+                                    } else if(item.Status == 3) {
+                                        <td>Suspended</td>
+                                    } else if(item.Status == 4) {
+                                        <td>Unverified</td>
+                                    } else {
+                                        <td>Blacklist</td>
+                                    }
+                                </tr>
+                            }
+                        } else {
+                            <tr class="odd">
+                                <td valign="top" colspan="7" class="dataTables_empty" style="color:red;">No data available in table</td>
+                                <td style="display: none;"></td>
+                                <td style="display: none;"></td>
+                                <td style="display: none;"></td>
+                                <td style="display: none;"></td>
+                                <td style="display: none;"></td>
+                                <td style="display: none;"></td>
+                                @*<td class="no-sort"></td>*@
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+    </div>
+</div>
+@section jsExtend{
+    <script src="~/Scripts/myScript/jsAccount.js"></script>
+}

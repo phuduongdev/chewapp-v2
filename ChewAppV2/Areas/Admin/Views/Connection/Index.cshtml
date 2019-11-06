@@ -1,0 +1,138 @@
+﻿@model IEnumerable<ChewApp.Domain.Models.KeeChewPlaceOrderTbl>
+@{
+    ViewBag.Title = "Connection";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section cssExtend{
+    <link href="~/Content/Admin/custom/common.css" rel="stylesheet" />
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title chew__h3">Connections</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <form class="row">
+                    <div class="col-xs-3">
+                        <input type="text" class="form-control" id="searchText" placeholder="Search Name" autofocus>
+                    </div>
+                    <div class="col-xs-1">
+                        <button type="button" class="btn btn-block btn-dropbox">Search</button>
+                    </div>
+                    <div class="col-xs-3">
+                        <select id="status" class="form-control">
+                            <option value="All" selected>All</option>
+                            <option value="">Offer</option>
+                            <option value="">Request</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-body" id="table-search">
+                <table id="tblOrder" class="table chew__table">
+                    <thead>
+                        <tr>
+                            <th>Connect Date/Time</th>
+                            <th class="none-sort">Connention ID</th>
+                            <th class="none-sort">Type</th>
+                            <th class="none-sort">Owner</th>
+                            <th class="none-sort">Conneted By</th>
+                            <th class="none-sort">Total Amount SGD</th>
+                            <th class="none-sort">Payment</th>
+                            <th class="none-sort">What is it</th>
+                            <th class="none-sort">Status</th>
+                            @*<th class="no-sort"></th>*@
+                        </tr>
+                    </thead>
+                    <tbody id="DataSearching">
+                        @if(Model.Count() != 0) {
+                            foreach(var item in Model) {
+                                @*<tr style="cursor:pointer;">
+                                        @if(item.DateAcceptedKC != null && item.DateAcceptedKC != Convert.ToDateTime("1/1/0001 12:00:00 AM")) {
+                                            <td>@String.Format("{0:d MMM yyyy, hh:mm tt}", item.DateAcceptedKC)</td>
+                                        } else {
+                                            <td></td>
+                                        }
+                                        <td>@item.KCName</td>
+                                        @if(item.KCPayment != 0) {
+                                            <td>$@item.KCPayment.ToString("0.00")</td>
+                                        } else {
+                                            <td>$0.00</td>
+                                        }
+                                        <td>@item.SCName</td>
+                                        @if(item.SCPayout != 0) {
+                                            <td>$@item.SCPayout.ToString("0.00")</td>
+                                        } else {
+                                            <td>$0.00</td>
+                                        }
+                                        @if(item.Display_Status != "" || item.Display_Status != null) {
+
+                                            if(item.Display_Status == "Completed & Rate") {
+                                                <td style="background-color:#33CC00">Completed & Rate</td>
+                                            } else if(item.Display_Status == "Kee Chew Cancelled" || item.Display_Status == "Soon Chew Cancelled") {
+                                                <td style="background-color:red">@item.Display_Status</td>
+                                            } else {
+                                                <td>@item.Display_Status</td>
+                                            }
+                                        } else {
+                                            <td></td>
+                                        }
+                                        <td class="view">
+                                            <a href="OrderDetail/@item.ID" type="button" class="btn btn-block btn-dropbox btn-xs" style="width: 49px">View</a>
+                                        </td>
+                                    </tr>*@
+                                <tr>
+                                    <td>
+                                        24 Oct 2019<br />
+                                        11:00
+                                    </td>
+                                    <td class="chew__td--indexes--page">
+                                        <a href="~/Admin/Connection/Details/@item.ID" class="chew__link--indexes--page">1234</a>
+                                    </td>
+                                    <td>Offer</td>
+                                    <td>Desmond Ser</td>
+                                    <td>Sean</td>
+                                    <td>11:30</td>
+                                    <td>ChewPay</td>
+                                    <td>Katong laksa</td>
+                                    @{
+                                        var statusStyle = "";
+                                        var statusAppearText = "Accepted";
+                                        if(item.Display_Status == "Completed & Rate") {
+                                            statusStyle = "background-color:#33CC00";
+                                            statusAppearText = "Completed";
+                                        } else if(item.Display_Status == "Kee Chew Cancelled" || item.Display_Status == "Soon Chew Cancelled") {
+                                            statusStyle = "background-color:#d2d6de";
+                                            statusAppearText = "Decilined";
+                                        }
+                                    }
+                                    <td style="@statusStyle">@statusAppearText</td>
+                                </tr>
+                            }
+                        } else {
+                            <tr>
+                                <td valign="top" colspan="9" class="dataTables_empty" style="color:red;">No data available in table</td>
+                                <td style="display: none;"></td>
+                                <td style="display: none;"></td>
+                                <td style="display: none;"></td>
+                                <td style="display: none;"></td>
+                                <td style="display: none;"></td>
+                                <td style="display: none;"></td>
+                                <td style="display: none;"></td>
+                                <td style="display: none;"></td>
+                                @*<td class="no-sort"></td>*@
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@section jsExtend{
+    <script src="~/Scripts/myScript/connection-index.js"></script>
+}

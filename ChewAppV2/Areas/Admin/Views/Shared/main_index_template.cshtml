@@ -1,0 +1,88 @@
+﻿@{
+    ViewBag.Title = "main_index_template";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section cssExtend{
+    <link href="~/Content/Admin/custom/common.css" rel="stylesheet" />
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title"><i class="ion ion-clipboard"></i> Page Title</h3>
+            </div>
+            <div class="box-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-lg-3">
+                            <input type="text" class="form-control" id="searchText" placeholder="Search Name" autofocus>
+                        </div>
+                        <div class="col-lg-1">
+                            <button type="button" id="SearchOrder" class="btn btn-block btn-dropbox btn-sm" style="height: 34px;font-size: 14px;">Search</button>
+                        </div>
+                        <div class="col-lg-3">
+                            <select id="status" class="form-control">
+                                <option value="All" selected>All</option>
+                                <option value="">Offer</option>
+                                <option value="">Request</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="box-body" id="table-search">
+                <table id="tblOrder" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Connect Date/Time</th>
+                            <th class="none-sort">Connention ID</th>
+                            <th class="none-sort">Type</th>
+                            <th class="none-sort">Owner</th>
+                            <th class="none-sort">Conneted By</th>
+                            <th class="none-sort">Total Amount SGD</th>
+                            <th class="none-sort">Payment</th>
+                            <th class="none-sort">What is it</th>
+                            <th class="none-sort">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="DataSearching">
+                        @{ var modelLoading = "test"; }
+                        @if(modelLoading.Equals("test")) {
+                            for(int i = 0; i < 50; i++) {
+                                <tr>
+                                    <td>
+                                        24 Oct 2019<br />
+                                        11:00
+                                    </td>
+                                    <td><a href="#" class="chewapp__link__decorate">1234</a></td>
+                                    <td>Offer</td>
+                                    <td>Desmond Ser</td>
+                                    <td>Sean</td>
+                                    <td>11:30</td>
+                                    <td>ChewPay</td>
+                                    <td>Katong laksa</td>
+                                    <td>Text</td>
+                                </tr>
+                            }
+                        } else {
+                            <tr>
+                                <td valign="top" colspan="9" class="dataTables_empty" style="color:red;">No data available in table</td>
+                                <td style="display: none;"></td>
+                                <td style="display: none;"></td>
+                                <td style="display: none;"></td>
+                                <td style="display: none;"></td>
+                                <td style="display: none;"></td>
+                                <td style="display: none;"></td>
+                                <td style="display: none;"></td>
+                                <td style="display: none;"></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@section jsExtend{
+    <script src="~/Scripts/myScript/connention-index.js"></script>
+}

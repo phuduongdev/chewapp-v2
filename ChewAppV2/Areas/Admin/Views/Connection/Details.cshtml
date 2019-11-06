@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewBag.Title = "ConnectionDetails";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section cssExtend{
+    <link href="~/Content/Admin/custom/common.css" rel="stylesheet" />
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <div class="col-md-12">
+                    <h3 class="box-title chew__h3">Connection - [ID Here]</h3>
+                </div>
+                <div class="col-md-12">
+                    <a class="chewapp__link__decorate" href="~/Admin/Connection/Index">
+                        <img class="chew__back__button" src="~/Content/Admin/images/administrator/back_arrow.png" />
+                    </a>
+                </div>
+            </div>
+            <div class="box-body box-profile connection__spec">
+                <div class="col-md-12" style="max-width: 804px">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <ul>
+                                <li>Connect Date / Time</li>
+                                <li>24 Oct 2019, 11:00</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 pull-right">
+                            <span class="chew__text__highlight">Offer</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ul>
+                                <li>On Post</li>
+                                <li>
+                                    <a href="#">Katong Laksa</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <ul>
+                                <li>Offer Price</li>
+                                <li>
+                                    $11.30
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <ul>
+                                <li>Payment</li>
+                                <li>ChewPay</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4"><span class="chew__text__highlight">Accepted</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <ul>
+                                <li>Owner</li>
+                                <li>
+                                    Desmond Ser
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-2 pull-right clear__padding">
+                            <ul>
+                                <li>Connected By</li>
+                                <li>
+                                    Sean Tsai
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="connection__message">
+                        <table class="table table-bordered" border="1">
+                            <thead>
+                                <tr>
+                                    <th class="col-md-2">Message Time</th>
+                                    <th class="col-md-8">Message</th>
+                                    <th class="col-md-2">Message Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Test</td>
+                                    <td>Test</td>
+                                    <td>Test</td>
+                                </tr>
+                                <tr>
+                                    <td>Test</td>
+                                    <td>Test</td>
+                                    <td>Test</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="connection__rating">
+                        <table class="table table-bordered" border="1">
+                            <thead>
+                                <tr>
+                                    <th>Owner Rating</th>
+                                    <th>Conncter Rating</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>5 stars</b><br />Repsonsive</td>
+                                    <td><b>4 stars</b><br />Slow delivery</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

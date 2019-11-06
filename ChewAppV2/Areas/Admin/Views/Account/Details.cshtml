@@ -1,0 +1,498 @@
+﻿@{
+    ViewBag.Title = "AccountDetails";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section cssExtend
+        {
+    <link href="~/Content/Admin/custom/common.css" rel="stylesheet" />
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <div class="col-md-12">
+                    <h3 class="box-title chew__h3">Account Details - [UserName]</h3>
+                </div>
+                <div class="col-md-12">
+                    <a class="chewapp__link__decorate" href="~/Admin/Account/Index">
+                        <img class="chew__back__button" src="~/Content/Admin/images/administrator/back_arrow.png">
+                    </a>
+                </div>
+            </div>
+            <div class="box-body box-profile">
+                <div id="left__avatar" class="col-md-3">
+                    <div style="width: 191px;height: 191px; margin-bottom: 10px;">
+                        @*<img class="profile-user-img img-responsive img-circle" src="~/UploadedImage/@if (ViewBag.acc != null) { @ViewBag.acc.Image } " alt="Account profile picture">*@
+                        <img class="profile-user-img img-responsive img-circle" src="~/Content/Admin/images/administrator/Default.png" alt="Account profile picture">
+                    </div>
+                    <div class="col-sm-10 col-sm-offset-1 ">
+                        <form action="../UpdateStatusAccount" method="post" id="update">
+                            <div>
+                                <button type="button" class="btn btn-block btn-info btn-xs dropdown-toggle" data-toggle="dropdown">
+                                    @*@if(ViewBag.acc.Status == 1) {
+                                            <span style="padding-left: 5px;">Active</span>
+                                        } else if(ViewBag.acc.Status == 2) {
+                                            <span style="padding-left: 5px;">Deregistered</span>
+                                        } else if(ViewBag.acc.Status == 3) {
+                                            <span style="padding-left: 5px;">Suspended</span>
+                                        } else if(ViewBag.acc.Status == 4) {
+                                            <span style="padding-left: 5px;">Unverified</span>
+                                        } else {*@
+                                    <span style="padding-left: 5px;">Blacklist</span>
+                                    @*}*@
+                                </button>
+                                <input hidden="hidden" id="idAccount" name="idAccount" type="text" value="">
+                                <input hidden="hidden" name="listelemtext" type="text" id="text">
+                                <ul class="dropdown-menu" id="dropdown">
+                                    <li>
+                                        <span>Active</span>
+                                    </li>
+                                    <li>
+                                        <span>Unverified</span>
+                                    </li>
+                                    <li>
+                                        <span>Deregistered</span>
+                                    </li>
+                                    <li>
+                                        <span>Suspended</span>
+                                    </li>
+                                    <li>
+                                        <span>Blacklist</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </form>
+                        <button type="button" class="btn btn-block btn-info btn-xs" style="margin-top: 15px;" id="btnEdit">Edit Profile</button>
+                        <div id="u1276_text" class="text-center Balance" style="cursor:pointer" onclick="showBalane()">
+                            <p style="margin:0">
+                                <span>Balance $500</span>
+                            </p>
+                        </div>
+                        <div id="u1276_text" class="text-center">
+                            <p style="margin:0">
+                                <span>Credit Cards (0)</span>
+                            </p>
+                        </div>
+                        <div id="u1276_text" class="text-center">
+                            <p style="margin:0">
+                                <span>SC History (0)</span>
+                            </p>
+                            <p style="margin:0">
+                                <span>0 Stars</span>
+                            </p>
+                        </div>
+                        <div id="u1276_text" class="text-center">
+                            <p style="margin:0">
+                                <span>KC History (0)</span>
+                            </p>
+                            <p style="margin:0">
+                                <span>0 Stars</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                @*end left__avatar*@
+                <div class="col-md-5" id="tableDetailAccount">
+                    <div class="box-body">
+                        <table class="table table-bordered text-center" border="1">
+                            <tbody>
+                                <tr>
+                                    <th>Registered on</th>
+                                    <td>
+                                        <span style="color:red;">Data not found</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Name</th>
+                                    <td>
+                                        <span style="color:red;">Data not found</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Gender</th>
+
+                                    <td><span style="color:red;">Data not found</span></td>
+                                </tr>
+                                <tr>
+                                    <th>Email</th>
+
+                                    <td><span style="color:red;">Data not found</span></td>
+                                </tr>
+                                <tr>
+                                    <th>Mobile</th>
+
+                                    <td>
+                                        <span style="color:red;">Data not found</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Referral Code</th>
+                                    <td>
+
+                                        <span style="color:red;">Data not found</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Referred By</th>
+                                    <td>
+
+                                        <span style="color:red;">Data not found</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="box-body">
+                        <table class="table table-bordered text-center">
+                            <tbody>
+                                <tr>
+                                    <th style="width: 38.7%;">Bank</th>
+                                    <td>
+                                        Demo data
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Account Name</th>
+                                    <td>
+                                        Demo data
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Account Number</th>
+                                    <td>
+                                        Demo data
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>PayNow Number</th>
+                                    <td>
+                                        Demo data
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="box-body">
+                        <p>
+                            <span style="font-family:'ArialMT', 'Arial';font-weight:400;">Date / Time last open app: </span>
+
+                            <span style="font-family:'Arial-BoldMT', 'Arial Bold', 'Arial';font-weight:700;">Not logged in</span>
+                        </p>
+                    </div>
+                    @*update ui 29/10/2019*@
+                    <div id="saved__address" class="box-body">
+                        <h2>Saved Address</h2>
+                        <p>Home</p>
+                        <ul>
+                            <li>Location</li>
+                            <li>22 Sin Ming Lane</li>
+                            <li>Details</li>
+                            <li>#05-71</li>
+                            <li>Remarks</li>
+                            <li>Enter by lobby</li>
+                        </ul>
+                        <p>Office</p>
+                        <ul>
+                            <li>Location</li>
+                            <li>22 Sin Ming Lane</li>
+                            <li>Details</li>
+                            <li>#05-71</li>
+                            <li>Remarks</li>
+                            <li>Enter by lobby</li>
+                        </ul>
+                    </div>
+                </div>
+                @*start rating*@
+                <div id="rating" class="col-md-8">
+                    <h2>Rating</h2>
+                    <table class="table table-responsive">
+                        <thead>
+                            <tr>
+                                <th>Connect<br>Data/Time</th>
+                                <th>Connection ID</th>
+                                <th>Type</th>
+                                <th>Owner</th>
+                                <th>Connected By</th>
+                                <th>Rating</th>
+                                <th>Comments</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>24 Oct 2019 11:00</td>
+                                <td>
+                                    <a href="#">1245</a>
+                                </td>
+                                <td>Offer</td>
+                                <td>Sean</td>
+                                <td>Peter</td>
+                                <td>5</td>
+                                <td>Good</td>
+                            </tr>
+                            <tr>
+                                <td>24 Oct 2019 11:00</td>
+                                <td>
+                                    <a href="#">1245</a>
+                                </td>
+                                <td>Offer</td>
+                                <td>Sean</td>
+                                <td>Peter</td>
+                                <td>5</td>
+                                <td>Good</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> @*end rating*@
+                @*end update ui*@
+                @*account edit page*@
+                @*<div class="col-md-7" id="editProfile" style="display:none">
+                        <a onclick="Profile()" class="small-box-footer" style="cursor:pointer"><i class="fa fa-arrow-circle-left" style="font-size: 17px;"></i><span style="font-size: 20px;">  Profile</span></a>
+                        <br />
+                        <br />
+                        <div class="box" style="border: solid 0.5px #d2d6de;">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Edit Profile</h3>
+                            </div>
+                            <form class="form-horizontal">
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <label for="inputName" class="col-sm-3 control-label">Name</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="inputID" value="@ViewBag.acc.ID" style="display:none">
+                                            <input type="text" class="form-control" id="inputName" value="@ViewBag.acc.FullName">
+                                            <span class="error1" style="color:red"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputGender" class="col-sm-3 control-label">Gender</label>
+                                        <div class="col-sm-9">
+                                            @if(@ViewBag.acc.Gender == 0) {
+                                                <label style="margin-right: 15%;">
+                                                    <input type="radio" name="r2" class="minimal-red" checked value="0">
+                                                    Male
+                                                </label>
+                                                <label style="margin-right: 15%;">
+                                                    <input type="radio" name="r2" class="minimal-red" value="1">
+                                                    Female
+                                                </label>
+                                                <label>
+                                                    <input type="radio" name="r2" class="minimal-red" value="2">
+                                                    No Selected
+                                                </label>
+                                            } else if(@ViewBag.acc.Gender == 1) {
+                                                <label style="margin-right: 15%;">
+                                                    <input type="radio" name="r2" class="minimal-red" value="0">
+                                                    Male
+                                                </label>
+                                                <label style="margin-right: 15%;">
+                                                    <input type="radio" name="r2" class="minimal-red" checked value="1">
+                                                    Female
+                                                </label>
+                                                <label>
+                                                    <input type="radio" name="r2" class="minimal-red" value="2">
+                                                    No Selected
+                                                </label>
+                                            } else {
+                                                <label style="margin-right: 15%;">
+                                                    <input type="radio" name="r2" class="minimal-red" value="0">
+                                                    Male
+                                                </label>
+                                                <label style="margin-right: 15%;">
+                                                    <input type="radio" name="r2" class="minimal-red" value="1">
+                                                    Female
+                                                </label>
+                                                <label>
+                                                    <input type="radio" name="r2" class="minimal-red" checked value="2">
+                                                    No Selected
+                                                </label>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail" class="col-sm-3 control-label">Email</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="inputEmail" value="@ViewBag.acc.Email">
+                                            <span class="error2" style="color:red"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputMobile" class="col-sm-3 control-label">Mobile</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="inputMobile" value="@ViewBag.acc.Phone">
+                                            <span class="error3" style="color:red"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputReferralCode" class="col-sm-3 control-label">Referral Code</label>
+                                        <div class="col-sm-9">
+                                            @if(ViewBag.acc != null) {
+                                                <input type="text" class="form-control" id="inputReferralCode" value="@ViewBag.acc.ReferralCode">
+                                                <span class="error4" style="color:red"></span>
+                                            } else {
+                                                <input type="text" class="form-control" id="inputReferralCode" value="">
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputReferredBy" class="col-sm-3 control-label">Referred By</label>
+                                        <div class="col-sm-9">
+                                            @if(ViewBag.acc != null) {
+                                                <input type="text" class="form-control" id="inputReferredBy" value="@ViewBag.acc.ReferredBy">
+                                                <span class="error5" style="color:red"></span>
+                                            } else {
+                                                <input type="text" class="form-control" id="inputReferredBy" value="">
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Bank</label>
+                                        <div class="col-sm-9">
+                                            @{
+                                                var x1 = "";
+                                                var x2 = "";
+                                                var x3 = "";
+                                                var x4 = "";
+                                                var x5 = "";
+
+                                                if(ViewBag.BankDetail != null) {
+                                                    if(ViewBag.BankDetail.BankName == "POSB") {
+                                                        x1 = "selected";
+                                                    }
+
+                                                    if(ViewBag.BankDetail.BankName == "UOB") {
+                                                        x2 = "selected";
+                                                    }
+
+                                                    if(ViewBag.BankDetail.BankName == "OCBC") {
+                                                        x3 = "selected";
+                                                    }
+
+                                                    if(ViewBag.BankDetail.BankName == "ACB") {
+                                                        x4 = "selected";
+                                                    }
+
+                                                    if(ViewBag.BankDetail.BankName == "SHCB") {
+                                                        x5 = "selected";
+                                                    }
+                                                }
+
+                                                <select id="selectBankName" class="form-control">
+                                                    <option selected value="0">Selected Bank</option>
+                                                    <option @x1 value="POSB">POSB</option>
+                                                    <option @x2 value="UOB">UOB</option>
+                                                    <option @x3 value="OCBC">OCBC</option>
+                                                    <option @x4 value="ACB">ACB</option>
+                                                    <option @x5 value="SHCB">SHCB</option>
+                                                </select>
+                                            }
+                                            <span class="error9" style="color:red"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputAccountName" class="col-sm-3 control-label">Account Name</label>
+                                        <div class="col-sm-9">
+                                            @if(ViewBag.BankDetail != null) {
+                                                <input type="text" class="form-control" id="inputAccountName" value="@ViewBag.BankDetail.AccountName">
+                                                <span class="error6" style="color:red"></span>
+                                            } else {
+                                                <input type="text" class="form-control" id="inputAccountName" value="">
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputAccountNumber" class="col-sm-3 control-label">Account Number</label>
+                                        <div class="col-sm-9">
+                                            @if(ViewBag.BankDetail != null) {
+                                                <input type="text" class="form-control" id="inputAccountNumber" value="@ViewBag.BankDetail.AccountNumber">
+                                                <span class="error7" style="color:red"></span>
+                                            } else {
+                                                <input type="text" class="form-control" id="inputAccountNumber" value="">
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputPayNowNumber" class="col-sm-3 control-label">PayNow Number</label>
+                                        <div class="col-sm-9">
+                                            @if(ViewBag.BankDetail != null) {
+                                                <input type="text" class="form-control" id="inputPayNowNumber" value="@ViewBag.BankDetail.PayNowNumber">
+                                                <span class="error8" style="color:red"></span>
+                                            } else {
+                                                <input type="text" class="form-control" id="inputPayNowNumber" value="">
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-footer">
+                                    <button type="button" class="btn btn-info pull-right" id="saveAccountDetail">Save</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>*@
+                @* end account edit page*@
+                @*start details balance page*@
+                @*<div class="col-md-9 chew-app" id="DetailBalance" style="display:none">
+                        <a onclick="return Profile()" class="small-box-footer" style="cursor:pointer"><i class="fa fa-arrow-circle-left" style="font-size: 17px;"></i><span style="font-size: 20px;"> Profile</span></a>
+                        <br />
+                        <br />
+                        <table id="tblBalance" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Description</th>
+                                    <th>Amount</th>
+                                    <th>Balance</th>
+                                </tr>
+                            </thead>
+                            <tbody id="DataSearching">
+                                @if(ViewBag.BanlanceResult.Count != 0) {
+                                    foreach(var item in ViewBag.BanlanceResult) {
+                                        <tr>
+                                            <td>@String.Format("{0:d MMM yyyy, HH:mm}", item.DateBalance != null ? item.DateBalance : null)</td>
+                                            @if(item.KC_Name != null) {
+                                                <td style="text-align:left;">SC for - KC (@item.KC_Name)</td>
+                                            } else {
+                                                <td style="text-align:left;">@item.Description</td>
+                                            }
+                                            <td>@item.Amount.ToString("0.00")</td>
+                                            <td>@item.Balance.ToString("0.00")</td>
+                                            @if(item.Status == "1") {
+                                                <td class="view"><i class="fa fa-times" id="deleteBalance" onclick="return DeleteBalance(@item.ID,@item.SoonChewID);"></i></td>
+                                            }
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                        <form class="form-horizontal">
+                            <div class="box-body">
+                                <div class="row">
+                                    <div class="col-xs-3" style="margin-left: 15px;">
+                                        <div class="input-group date">
+                                            <input type="text" class="form-control pull-right" id="datepicker" onkeypress="return CheckKeyword(event);">
+                                        </div>
+                                        <span class="balanError1" style="color:red;"></span>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <input type="text" class="form-control" id="inputDescription">
+                                        <span class="balanError2" style="color:red;"></span>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <input type="text" class="form-control" id="inputAmount">
+                                        <span class="balanError3" style="color:red;"></span>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <button type="button" id="addBalance" class="btn btn-block btn-dropbox btn-sm" style="width: 80%;font-size: 14px;">Add</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>*@
+                @*end details balance page*@
+            </div>
+        </div>
+    </div>
+</div>
+@section jsExtend{
+
+}

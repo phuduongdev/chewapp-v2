@@ -1,0 +1,226 @@
+﻿@model IEnumerable<ChewApp.Domain.Models.UserTbl>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StarTotalSC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StarTotalKC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KeeChew)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoonChew)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserRole)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResetPasswordCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DigitCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RegisteredOn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReferralCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReferredBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TokenDevices)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KeeChewPlaceOrderTbl_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HistorySoonChew_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HistoryKeeChew_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Latitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Longitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeOTP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeOpenApp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VerifyCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StatusEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StatusOnline)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer_Stripe_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Devices_OS)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach(var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StarTotalSC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StarTotalKC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KeeChew)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoonChew)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserRole)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResetPasswordCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DigitCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegisteredOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReferralCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReferredBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TokenDevices)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KeeChewPlaceOrderTbl_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HistorySoonChew_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HistoryKeeChew_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Latitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Longitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeOTP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeOpenApp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VerifyCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusOnline)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer_Stripe_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Devices_OS)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>

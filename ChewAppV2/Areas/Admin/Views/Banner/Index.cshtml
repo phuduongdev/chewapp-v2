@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "Banner";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section cssExtend{
+    <link href="~/Content/Admin/custom/common.css" rel="stylesheet" />
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-info">
+            <form class="form-horizontal">
+                <div class="box-header with-border">
+                    <h3 class="box-title chew__h3">Banner - Enjoy Chewapp for Free</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <button type="button" id="btn__add" class="btn btn-block btn-dropbox btn-sm chew__button">
+                                Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-body" id="table-search">
+                    <div style="max-width: 578px">
+                        <table id="banner__table" class="table chew__table">
+                            <thead>
+                                <tr>
+                                    <th class="none-sort" style="width: 100px">Created<br />Date/Time</th>
+                                    <th class="none-sort" style="width: 185px">Title</th>
+                                    <th class="none-sort" style="width: 187px">Position</th>
+                                    <th class="none-sort">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="DataSearching">
+                                @{ var modelLoading = "test"; }
+                                @if(modelLoading.Equals("test")) {
+                                    for(int i = 0; i < 5; i++) {
+                                        <tr>
+                                            <td>
+                                                24 Oct 2019<br />
+                                                11:00
+                                            </td>
+                                            <td class="chew__td--indexes--page">
+                                                <a href="#" class="chew__link--indexes--page">AMK Special</a>
+                                            </td>
+                                            <td>1</td>
+                                            <td style="background-color:#FFCC00">Publish</td>
+                                        </tr>
+                                    }
+                                    <tr>
+                                        <td>
+                                            24 Oct 2019<br />
+                                            11:00
+                                        </td>
+                                        <td class="chew__td--indexes--page">
+                                            <a href="#" class="chew__link--indexes--page">AMK Special</a>
+                                        </td>
+                                        <td>1</td>
+                                        <td>Unpublish</td>
+                                    </tr>
+
+                                } else {
+                                    <tr>
+                                        <td valign="top" colspan="9" class="dataTables_empty" style="color:red;">No data available in table</td>
+                                        <td style="display: none;"></td>
+                                        <td style="display: none;"></td>
+                                        <td style="display: none;"></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </form>
+        </div>
+    </div>
+</div>
+@section jsExtend{
+}
