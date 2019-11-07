@@ -122,20 +122,25 @@
                 <ul class="sidebar-menu">
                     <li class="header">Chew Web Admin</li>
                     @{string selectedRow = "";
-                        if(ViewBag.Title == "Account") {
+                        if (ViewBag.Title == "Account")
+                        {
                             selectedRow = "success";
                         }
                         <li class="@selectedRow"><a href="~/Admin/Account/Index"><i class="fa fa-users"></i> <span>Accounts</span></a></li>
-                        if(ViewBag.Title == "Banner") {
+                        if (ViewBag.Title == "Banner")
+                        {
                             selectedRow = "success";
                         }
                         <li class="@selectedRow"><a href="~/Admin/Banner/Index"><i class="fa fa-users"></i> <span>Banners</span></a></li>
-                        if(ViewBag.Title == "Banner Detail") {
+                        if (ViewBag.Title == "Banner Detail")
+                        {
                             selectedRow = "success";
                         }
                         <li class="@selectedRow"><a href="~/Admin/Banner/Details"><i class="fa fa-users"></i> <span>Banners Details</span></a></li>
                         <li class="@selectedRow"><a href="~/Admin/Connection/Index"><i class="fa fa-users"></i> <span>Connection</span></a></li>
-                    <li class="@selectedRow"><a href="~/Admin/Connection/Details"><i class="fa fa-users"></i> <span>Connection Details</span></a></li>
+                        <li class="@selectedRow"><a href="~/Admin/Connection/Details"><i class="fa fa-users"></i> <span>Connection Details</span></a></li>
+                        <li class="@selectedRow"><a href="~/Admin/HelpCenter/Index"><i class="fa fa-users"></i> <span>Help Center</span></a></li>
+
                     }
                 </ul>
                 @*<ul class="sidebar-menu">

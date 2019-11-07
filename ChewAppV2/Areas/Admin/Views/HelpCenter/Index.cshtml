@@ -1,0 +1,176 @@
+﻿@model IEnumerable<ChewApp.Service.DTOs.HelpCenterDTO>
+    @{
+        ViewBag.Title = "Index";
+        Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    }
+
+    <div class="row">
+        <div class="col-xs-12">
+
+            <div class="box box-info">
+                <div class="box-header">
+                    <h3 class="box-title">Help Center</h3>
+                </div>
+
+                <!-- /.box-header -->
+                <div class="box-body">
+                    @*<form class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-lg-5 col-sm-10">
+                                <input type="text" class="form-control" id="searchName" placeholder="Search Name" autofocus>
+                            </div>
+                            <div class="col-lg-2 col-sm-6">
+                                <select id="status" class="form-control" aria-controls="example2">
+                                    <option value="New">All</option>
+                                    <option value="Active" selected>New</option>
+                                    <option value="Open">Open</option>
+                                    <option value="Resolved">Resolved</option>
+
+                                </select>
+                            </div>
+                            <div class="col-lg-2 col-sm-2">
+                                <button type="button" id="SearchRequest" class="btn btn-block btn-dropbox btn-sm" style="height: 34px;font-size: 14px;">Search</button>
+                            </div>
+                        </div>
+                    </form>*@
+                    <table id="tblHelpCenter" class="table table-responsive">
+                        <thead>
+                            <tr>
+                                <th>Request <br />Date/Time</th>
+                                <th>Reported by</th>
+                                <th>Report on</th>
+                                <th>on Post</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.Count() != 0)
+                            {
+                                foreach (var item in Model)
+                                {
+                            <tr>
+                                @if (item.ReportedDate != null && item.ReportedDate != Convert.ToDateTime("1/1/0001 12:00:00 AM"))
+                                {
+                                    <td>
+                                        @String.Format("{0:dd MMM yyyy}", item.ReportedDate)<br />
+                                        @String.Format("{0:HH:mm}", item.ReportedDate)
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td></td>
+                                }
+                                
+                                  
+
+                                    
+                                @if (item.Status == 0)
+                                    {
+                                        
+
+                                        <td style="background-color: #FFCC00;"><a href="~/Admin/HelpCenter/Details/@item.ID" style="text-decoration: underline; color: black;">@item.ReportByName</a></td>
+
+                                    }
+                                    else
+                                    {
+                                        <td ><a style="text-decoration: underline; color: black;">@item.ReportByName</a></td>
+
+
+                                    }
+
+                                
+                               
+                                <td>@item.ReportOnName</td>
+                                <td>@item.ConnectionName</td>
+                                @{
+                                    var statusStyle = "";
+                                    var statusValue = "Resolved";
+                                    if (item.Status == 0)
+                                    {
+                                        statusStyle = "background-color: #FFCC00;";
+                                        statusValue = "New";
+                                    }
+                                    else if (item.Status == 1)
+                                    {
+                                        statusStyle = "background-color: #FFCC00;";
+                                        statusValue = "Open";
+                                    }
+                                }
+
+                                <td style="@statusStyle">@statusValue </td>
+                            </tr>
+                                        }
+                                }
+                            @*<tr>
+                                    <td>
+                                        23 Oct 2019
+                                        <br>
+                                        19:00
+                                    </td>
+                                    <td><a style="text-decoration: underline; color: black;">Johnson</a></td>
+                                    <td>Don Goh</td>
+                                    <td>Tian Tian Chicken Rice</td>
+                                    <td style="background-color: #FFCC00;">Open</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        23 Oct 2019
+                                        <br>
+                                        19:00
+                                    </td>
+                                    <td><a style="text-decoration: underline; color: black;">Johnson</a></td>
+                                    <td>Don Goh</td>
+                                    <td>Tian Tian Chicken Rice</td>
+                                    <td>Resolved</td>
+                                </tr>*@
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+
+    <style>
+
+        body {
+            font-size: 13px;
+            font-family: 'ArialMT', 'Arial';
+        }
+
+        .table {
+            font-size: 13px;
+            font-family: 'ArialMT', 'Arial';
+        }
+
+            .table thead tr th {
+                background: #E4E4E4;
+            }
+
+            .table thead tr th,
+            .table tbody tr th,
+            .table tfoot tr th,
+            .table thead tr td,
+            .table tbody tr td,
+            .table tfoot tr td,
+            .table tr th {
+                text-align: center;
+                vertical-align: middle;
+                border: solid 1px black !important;
+            }
+
+        a {
+            color: black;
+        }
+    </style>
+    @section jsExtend{
+        <script>
+            $(function () {
+
+                $('#tblHelpCenter').DataTable({
+
+                });
+            });
+        </script>
+    }

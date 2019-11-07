@@ -66,5 +66,7 @@ namespace ChewApp.Domain.Models
 
         [StringLength(500)]
         public string LongtitudeTo { get; set; }
+       
+
     }
 }

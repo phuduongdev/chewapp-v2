@@ -47,5 +47,6 @@ namespace ChewApp.Domain.Models
 
         [StringLength(500)]
         public string DeliveryFee { get; set; }
+        public long? FootID { get; set; }
     }
 }
