@@ -7,13 +7,13 @@ namespace ChewApp.Data.Access.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0-preview1-19506-01")]
-    public sealed partial class InitDatabase : IMigrationMetadata
+    public sealed partial class UpdateDB : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitDatabase));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateDB));
         
         string IMigrationMetadata.Id
         {
-            get { return "201910311312127_InitDatabase"; }
+            get { return "201911070157094_UpdateDB"; }
         }
         
         string IMigrationMetadata.Source

@@ -1,11 +1,14 @@
-﻿namespace ChewApp.Domain.Models {
-
+namespace ChewApp.Domain.Models
+{
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
     [Table("BalanceTbl")]
-    public partial class BalanceTbl {
+    public partial class BalanceTbl
+    {
         public int ID { get; set; }
 
         public int? SoonChewID { get; set; }

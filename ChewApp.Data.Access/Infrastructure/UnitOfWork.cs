@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChewApp.Common.Handling.Error;
+using System;
 using System.Data.Entity.Validation;
 
 namespace ChewApp.Data.Access.Infrastructure {
@@ -40,7 +41,7 @@ namespace ChewApp.Data.Access.Infrastructure {
 
         //This Context property will return the DBContext object i.e. (EmployeeDBContext) object
         public ChewAppContext DbContext {
-            get { return _dbContext ?? (_dbContext = _dbFactory.DbContext()); }
+            get { return _dbContext ?? (_dbContext = _dbFactory.DbContext); }
         }
 
         #endregion properties
@@ -68,11 +69,9 @@ namespace ChewApp.Data.Access.Infrastructure {
         //call this Save() method so that it will make the changes in the database
         public void Save() {
             try {
-                _dbContext.SaveChanges();
+                DbContext.SaveChanges();
             } catch(DbEntityValidationException dbEx) {
-                foreach(var validationErrors in dbEx.EntityValidationErrors)
-                    foreach(var validationError in validationErrors.ValidationErrors)
-                        _errorMessage += string.Format("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage) + Environment.NewLine;
+                _errorMessage = FormatExceptionMessage.FormatDbEntityValidationExceptionErrorMessage(dbEx);
                 throw new Exception(_errorMessage, dbEx);
             }
         }

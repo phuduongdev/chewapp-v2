@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitDatabase : DbMigration
+    public partial class UpdateDB : DbMigration
     {
         public override void Up()
         {
@@ -105,6 +105,20 @@
                 .PrimaryKey(t => t.ID);
             
             CreateTable(
+                "dbo.BannerTbl",
+                c => new
+                    {
+                        ID = c.Long(nullable: false, identity: true),
+                        Title = c.String(maxLength: 500),
+                        Image = c.String(maxLength: 500),
+                        Position = c.Int(),
+                        Detail = c.String(),
+                        CreatedDate = c.DateTime(),
+                        Status = c.Int(),
+                    })
+                .PrimaryKey(t => t.ID);
+            
+            CreateTable(
                 "dbo.ChatTbl",
                 c => new
                     {
@@ -146,6 +160,32 @@
                         FoodCategoryTbl_Name = c.String(maxLength: 255),
                         FoodIndex = c.Int(),
                         Status = c.Int(),
+                        Type = c.Int(),
+                        UserID = c.Long(),
+                        CreatedDate = c.DateTime(),
+                        Payment = c.Int(),
+                        ValidDate = c.DateTime(),
+                        From = c.String(maxLength: 500),
+                        To = c.String(maxLength: 500),
+                        LatitudeFrom = c.String(maxLength: 500),
+                        LongtitudeFrom = c.String(maxLength: 500),
+                        LatitudeTo = c.String(maxLength: 500),
+                        LongtitudeTo = c.String(maxLength: 500),
+                    })
+                .PrimaryKey(t => t.ID);
+            
+            CreateTable(
+                "dbo.HelpCenterTbl",
+                c => new
+                    {
+                        ID = c.Long(nullable: false, identity: true),
+                        ReportByID = c.Long(),
+                        ReportOnID = c.Long(),
+                        ConnectionID = c.Long(),
+                        ReportedDate = c.DateTime(),
+                        ReportedIssue = c.String(),
+                        Status = c.Int(),
+                        ContentText = c.String(),
                     })
                 .PrimaryKey(t => t.ID);
             
@@ -415,6 +455,8 @@
                         Status = c.Int(),
                         Customer_Stripe_ID = c.String(maxLength: 255),
                         Devices_OS = c.String(maxLength: 10, unicode: false),
+                        IDGoogle = c.String(maxLength: 500),
+                        IDFacebook = c.String(maxLength: 500),
                     })
                 .PrimaryKey(t => t.ID);
             
@@ -459,9 +501,11 @@
             DropTable("dbo.KeeChewSoonChewHistoryTbl");
             DropTable("dbo.KeeChewPlaceOrderTbl");
             DropTable("dbo.KeeChewPlaceOrderDetailTbl");
+            DropTable("dbo.HelpCenterTbl");
             DropTable("dbo.FoodTbl");
             DropTable("dbo.FoodCategoryTbl");
             DropTable("dbo.ChatTbl");
+            DropTable("dbo.BannerTbl");
             DropTable("dbo.BankTbl");
             DropTable("dbo.BankDetailsTbl");
             DropTable("dbo.BalanceTbl");

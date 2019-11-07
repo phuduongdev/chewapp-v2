@@ -1,6 +1,9 @@
 ﻿@model IEnumerable<ChewApp.Domain.Models.UserTbl>
 @using PagedList.Mvc;
 @{
+    if(Session["Administrator"] == null) {
+        Response.Redirect("~/Admin/Login/Index");
+    }
     ViewBag.Title = "Account";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }

@@ -4,11 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace ChewAppV2.Areas.Admin.Controllers
+namespace ChewAppV2.Areas.Admin.Controllers.Auth
 {
-    public class LoginController : Controller
+    public class ForgotPasswordController : Controller
     {
-        // GET: Admin/Login
+        // GET: Admin/ForgotPassword
         public ActionResult Index()
         {
             return View();

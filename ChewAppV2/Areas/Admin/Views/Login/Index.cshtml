@@ -1,16 +1,52 @@
-﻿
-@{
-    Layout = null;
+﻿@{
+    ViewBag.Title = "Administrator Login";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutLoginRegister.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-<h1>Chew App V2 - Login Page</h1>
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <div class="login-logo">
+            <b>ChewApp Administration V2</b>
+        </div>
+        <div class="login-box-body">
+            <p class="login-box-msg">Sign in to start your session</p>
+            @Html.Raw(ViewBag.error)
+            <form action="~/Admin/Login/Login" method="post">
+                <div class="form-group has-feedback">
+                    <input type="text" name="username" class="form-control" placeholder="UserName" required autofocus>
+                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    <input type="password" name="password" class="form-control" placeholder="Password" required>
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8">
+                        @*<div class="checkbox icheck">
+                                <label>
+                                    <input type="checkbox"> Remember Me
+                                </label>
+                            </div>*@
+                    </div>
+                    <div class="col-xs-4">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                    </div>
+                </div>
+            </form>
+            <a href="~/Admin/ForgotPassword/Index">I forgot my password</a><br>
+        </div>
+    </div>
+    <script src="~/Content/Admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="~/Content/Admin/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Content/Admin/plugins/iCheck/icheck.min.js"></script>
+    <script>
+        $(function () {
+            $('input').iCheck({
+                checkboxClass: 'icheckbox_square-blue',
+                radioClass: 'iradio_square-blue',
+                increaseArea: '20%'
+            });
+        });
+    </script>
 </body>
-</html>
+

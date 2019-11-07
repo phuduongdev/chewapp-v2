@@ -26,10 +26,10 @@ namespace ChewAppV2.App_Start {
             builder.RegisterControllers(Assembly.GetExecutingAssembly());
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
-            builder.RegisterType<ChewAppContext>().AsSelf().InstancePerRequest();
-            builder.RegisterType<DbFactoryImplement>().As<DbFactory>().InstancePerRequest();
             builder.RegisterType<UnitOfWorkImplement>().As<UnitOfWork>().InstancePerRequest();
-            
+            builder.RegisterType<DbFactoryImplement>().As<DbFactory>().InstancePerRequest();
+            builder.RegisterType<ChewAppContext>().AsSelf().InstancePerRequest();
+
             // Repositories
             builder.RegisterAssemblyTypes(typeof(UserTblRepository).Assembly)
                 .Where(t => t.Name.EndsWith("Repository"))

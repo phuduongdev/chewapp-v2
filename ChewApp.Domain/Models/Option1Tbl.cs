@@ -1,8 +1,13 @@
-﻿namespace ChewApp.Domain.Models {
-
+namespace ChewApp.Domain.Models
+{
+    using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
-    public partial class Option1Tbl {
+    public partial class Option1Tbl
+    {
         public long ID { get; set; }
 
         [StringLength(500)]

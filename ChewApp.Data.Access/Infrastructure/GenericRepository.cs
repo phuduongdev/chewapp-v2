@@ -60,7 +60,7 @@ namespace ChewApp.Data.Access.Infrastructure {
         #region properties
 
         public ChewAppContext DbContext {
-            get { return this._dbContext ?? (_dbContext = _dbFactory.DbContext()); }
+            get { return this._dbContext ?? (_dbContext = _dbFactory.DbContext); }
         }
 
         public virtual IDbSet<TEntity> DbSet {

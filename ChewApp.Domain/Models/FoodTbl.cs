@@ -1,10 +1,14 @@
-﻿namespace ChewApp.Domain.Models {
-
+namespace ChewApp.Domain.Models
+{
+    using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
     [Table("FoodTbl")]
-    public partial class FoodTbl {
+    public partial class FoodTbl
+    {
         public long ID { get; set; }
 
         [StringLength(500)]
@@ -34,5 +38,33 @@
         public int? FoodIndex { get; set; }
 
         public int? Status { get; set; }
+
+        public int? Type { get; set; }
+
+        public long? UserID { get; set; }
+
+        public DateTime? CreatedDate { get; set; }
+
+        public int? Payment { get; set; }
+
+        public DateTime? ValidDate { get; set; }
+
+        [StringLength(500)]
+        public string From { get; set; }
+
+        [StringLength(500)]
+        public string To { get; set; }
+
+        [StringLength(500)]
+        public string LatitudeFrom { get; set; }
+
+        [StringLength(500)]
+        public string LongtitudeFrom { get; set; }
+
+        [StringLength(500)]
+        public string LatitudeTo { get; set; }
+
+        [StringLength(500)]
+        public string LongtitudeTo { get; set; }
     }
 }

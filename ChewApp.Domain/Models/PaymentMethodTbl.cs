@@ -1,10 +1,14 @@
-﻿namespace ChewApp.Domain.Models {
-
+namespace ChewApp.Domain.Models
+{
+    using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
     [Table("PaymentMethodTbl")]
-    public partial class PaymentMethodTbl {
+    public partial class PaymentMethodTbl
+    {
         public long ID { get; set; }
 
         public long? UserID { get; set; }

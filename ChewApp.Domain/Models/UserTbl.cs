@@ -1,11 +1,14 @@
-﻿namespace ChewApp.Domain.Models {
-
+namespace ChewApp.Domain.Models
+{
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
     [Table("UserTbl")]
-    public partial class UserTbl {
+    public partial class UserTbl
+    {
         public long ID { get; set; }
 
         [StringLength(500)]
@@ -87,5 +90,11 @@
 
         [StringLength(10)]
         public string Devices_OS { get; set; }
+
+        [StringLength(500)]
+        public string IDGoogle { get; set; }
+
+        [StringLength(500)]
+        public string IDFacebook { get; set; }
     }
 }

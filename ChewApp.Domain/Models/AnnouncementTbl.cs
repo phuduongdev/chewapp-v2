@@ -1,11 +1,14 @@
-﻿namespace ChewApp.Domain.Models {
-
+namespace ChewApp.Domain.Models
+{
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
     [Table("AnnouncementTbl")]
-    public partial class AnnouncementTbl {
+    public partial class AnnouncementTbl
+    {
         public int ID { get; set; }
 
         public DateTime? CreatedDate { get; set; }

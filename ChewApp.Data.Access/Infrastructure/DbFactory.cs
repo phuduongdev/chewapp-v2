@@ -3,16 +3,17 @@
 namespace ChewApp.Data.Access.Infrastructure {
 
     public interface DbFactory {
-
-        ChewAppContext DbContext();
+        ChewAppContext DbContext { get; }
     }
 
     public class DbFactoryImplement : DbFactory, IDisposable {
         private bool _disposed = false;
         private ChewAppContext _dbContext;
 
-        public ChewAppContext DbContext() {
-            return _dbContext ?? (_dbContext = new ChewAppContext());
+        public ChewAppContext DbContext {
+            get {
+                return _dbContext ?? (_dbContext = new ChewAppContext());
+            }
         }
 
         //The Dispose() method is used to free unmanaged resources like files,
@@ -23,9 +24,13 @@ namespace ChewApp.Data.Access.Infrastructure {
         }
 
         protected virtual void Dispose(bool disposing) {
-            if(!_disposed && disposing)
-                _dbContext.Dispose();
-            _disposed = true;
+            try {
+                if(!_disposed && disposing)
+                    DbContext.Dispose();
+                _disposed = true;
+            } catch(Exception e) {
+                Console.WriteLine(e.StackTrace);
+            }
         }
     }
 }

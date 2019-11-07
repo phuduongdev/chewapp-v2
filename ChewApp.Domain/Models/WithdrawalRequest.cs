@@ -1,11 +1,14 @@
-﻿namespace ChewApp.Domain.Models {
-
+namespace ChewApp.Domain.Models
+{
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
     [Table("WithdrawalRequest")]
-    public partial class WithdrawalRequest {
+    public partial class WithdrawalRequest
+    {
         public long ID { get; set; }
 
         public DateTime? DateOfRequest { get; set; }

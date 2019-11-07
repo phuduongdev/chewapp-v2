@@ -55,16 +55,21 @@
     <Compile Include="Infrastructure\DbFactory.cs" />
     <Compile Include="Infrastructure\GenericRepository.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Migrations\201910311312127_InitDatabase.cs" />
-    <Compile Include="Migrations\201910311312127_InitDatabase.designer.cs">
-      <DependentUpon>201910311312127_InitDatabase.cs</DependentUpon>
+    <Compile Include="Migrations\201911070157094_UpdateDB.cs" />
+    <Compile Include="Migrations\201911070157094_UpdateDB.designer.cs">
+      <DependentUpon>201911070157094_UpdateDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\AdministratorRepository.cs" />
     <Compile Include="Repository\KeeChewPlaceOrderTblRepository.cs" />
     <Compile Include="Repository\UserTblRepository.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201911070157094_UpdateDB.resx">
+      <DependentUpon>201911070157094_UpdateDB.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
@@ -78,11 +83,6 @@
       <Project>{8be3e640-8320-434c-b3b3-334c32a9c7ba}</Project>
       <Name>ChewApp.Domain</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201910311312127_InitDatabase.resx">
-      <DependentUpon>201910311312127_InitDatabase.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

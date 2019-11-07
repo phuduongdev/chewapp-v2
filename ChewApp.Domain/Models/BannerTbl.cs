@@ -6,18 +6,22 @@ namespace ChewApp.Domain.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("FoodCategoryTbl")]
-    public partial class FoodCategoryTbl
+    [Table("BannerTbl")]
+    public partial class BannerTbl
     {
         public long ID { get; set; }
 
         [StringLength(500)]
-        public string CategoryName { get; set; }
+        public string Title { get; set; }
 
         [StringLength(500)]
-        public string CategoryImage { get; set; }
+        public string Image { get; set; }
 
-        public int? CategoryIndex { get; set; }
+        public int? Position { get; set; }
+
+        public string Detail { get; set; }
+
+        public DateTime? CreatedDate { get; set; }
 
         public int? Status { get; set; }
     }

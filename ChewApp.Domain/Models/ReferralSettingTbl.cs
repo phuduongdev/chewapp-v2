@@ -1,10 +1,14 @@
-﻿namespace ChewApp.Domain.Models {
-
+namespace ChewApp.Domain.Models
+{
     using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
     [Table("ReferralSettingTbl")]
-    public partial class ReferralSettingTbl {
+    public partial class ReferralSettingTbl
+    {
         public int ID { get; set; }
 
         public DateTime? EffectiveFrom { get; set; }

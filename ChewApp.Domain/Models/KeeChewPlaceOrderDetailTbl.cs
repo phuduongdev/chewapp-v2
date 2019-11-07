@@ -1,10 +1,14 @@
-﻿namespace ChewApp.Domain.Models {
-
+namespace ChewApp.Domain.Models
+{
+    using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
     [Table("KeeChewPlaceOrderDetailTbl")]
-    public partial class KeeChewPlaceOrderDetailTbl {
+    public partial class KeeChewPlaceOrderDetailTbl
+    {
         public long ID { get; set; }
 
         public long? FoodID { get; set; }

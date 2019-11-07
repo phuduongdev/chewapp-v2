@@ -12,32 +12,34 @@ namespace ChewApp.Data.Access {
             this.Configuration.LazyLoadingEnabled = false;
         }
 
-        public DbSet<AdministratorsTbl> AdministratorsTbls { get; set; }
-        public DbSet<AnnouncementTbl> AnnouncementTbls { get; set; }
-        public DbSet<AssignMenuTbl> AssignMenuTbls { get; set; }
-        public DbSet<BalanceTbl> BalanceTbls { get; set; }
-        public DbSet<BankDetailsTbl> BankDetailsTbls { get; set; }
-        public DbSet<BankTbl> BankTbls { get; set; }
-        public DbSet<FoodCategoryTbl> FoodCategoryTbls { get; set; }
-        public DbSet<FoodTbl> FoodTbls { get; set; }
-        public DbSet<KeeChewPlaceOrderDetailTbl> KeeChewPlaceOrderDetailTbls { get; set; }
-        public DbSet<KeeChewPlaceOrderTbl> KeeChewPlaceOrderTbls { get; set; }
-        public DbSet<KeeChewSoonChewHistoryTbl> KeeChewSoonChewHistoryTbls { get; set; }
-        public DbSet<Option1Tbl> Option1Tbl { get; set; }
-        public DbSet<Option2Tbl> Option2Tbl { get; set; }
-        public DbSet<PaymentMethodTbl> PaymentMethodTbls { get; set; }
-        public DbSet<PlatformFeeTbl> PlatformFeeTbls { get; set; }
-        public DbSet<PromotionTbl> PromotionTbls { get; set; }
-        public DbSet<RatingTbl> RatingTbls { get; set; }
-        public DbSet<ReferralListTbl> ReferralListTbls { get; set; }
-        public DbSet<ReferralSettingTbl> ReferralSettingTbls { get; set; }
-        public DbSet<SettingDistanceTbl> SettingDistanceTbls { get; set; }
-        public DbSet<SettingFeeTbl> SettingFeeTbls { get; set; }
-        public DbSet<SettingRequestTimingTbl> SettingRequestTimingTbls { get; set; }
-        public DbSet<UserTbl> UserTbls { get; set; }
-        public DbSet<WithdrawalRequest> WithdrawalRequests { get; set; }
-        public DbSet<ChatTbl> ChatTbls { get; set; }
-        public DbSet<TransactionTbl> TransactionTbls { get; set; }
+        public virtual DbSet<AdministratorsTbl> AdministratorsTbls { get; set; }
+        public virtual DbSet<AnnouncementTbl> AnnouncementTbls { get; set; }
+        public virtual DbSet<AssignMenuTbl> AssignMenuTbls { get; set; }
+        public virtual DbSet<BalanceTbl> BalanceTbls { get; set; }
+        public virtual DbSet<BankDetailsTbl> BankDetailsTbls { get; set; }
+        public virtual DbSet<BankTbl> BankTbls { get; set; }
+        public virtual DbSet<FoodCategoryTbl> FoodCategoryTbls { get; set; }
+        public virtual DbSet<FoodTbl> FoodTbls { get; set; }
+        public virtual DbSet<KeeChewPlaceOrderDetailTbl> KeeChewPlaceOrderDetailTbls { get; set; }
+        public virtual DbSet<KeeChewPlaceOrderTbl> KeeChewPlaceOrderTbls { get; set; }
+        public virtual DbSet<KeeChewSoonChewHistoryTbl> KeeChewSoonChewHistoryTbls { get; set; }
+        public virtual DbSet<Option1Tbl> Option1Tbl { get; set; }
+        public virtual DbSet<Option2Tbl> Option2Tbl { get; set; }
+        public virtual DbSet<PaymentMethodTbl> PaymentMethodTbls { get; set; }
+        public virtual DbSet<PlatformFeeTbl> PlatformFeeTbls { get; set; }
+        public virtual DbSet<PromotionTbl> PromotionTbls { get; set; }
+        public virtual DbSet<RatingTbl> RatingTbls { get; set; }
+        public virtual DbSet<ReferralListTbl> ReferralListTbls { get; set; }
+        public virtual DbSet<ReferralSettingTbl> ReferralSettingTbls { get; set; }
+        public virtual DbSet<SettingDistanceTbl> SettingDistanceTbls { get; set; }
+        public virtual DbSet<SettingFeeTbl> SettingFeeTbls { get; set; }
+        public virtual DbSet<SettingRequestTimingTbl> SettingRequestTimingTbls { get; set; }
+        public virtual DbSet<UserTbl> UserTbls { get; set; }
+        public virtual DbSet<WithdrawalRequest> WithdrawalRequests { get; set; }
+        public virtual DbSet<BannerTbl> BannerTbls { get; set; }
+        public virtual DbSet<ChatTbl> ChatTbls { get; set; }
+        public virtual DbSet<HelpCenterTbl> HelpCenterTbls { get; set; }
+        public virtual DbSet<TransactionTbl> TransactionTbls { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder) {
             modelBuilder.Entity<BankTbl>()
